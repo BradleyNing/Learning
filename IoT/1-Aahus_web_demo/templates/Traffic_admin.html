@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block page_content %}
+<h3>1. Get Latest Alert or Lastest Information of a Sensor</h3>
+<form method="post" enctype="multipart/form-data">
+    {{ formGet.hidden_tag() }}
+	{{wtf.form_field(formGet.getID)}}
+    {{wtf.form_field(formGet.submitGet)}}
+    {{wtf.form_field(formGet.getInfoText)}}
+</form>
+<hr/>
+
+<h3>2. Led Blinking Alarm Configuration </h3>
+<form method="post" enctype="multipart/form-data">
+    {{ formLed.hidden_tag() }}
+    {{wtf.form_field(formLed.ledAlarmGate)}}
+    {{wtf.form_field(formLed.submitRedLed)}}
+    {{wtf.form_field(formLed.submitGreenLed)}}
+</form>
+
+<h3>3. Update Alert Gate of a Sensor or All Sensors</h3>
+<form method="post" enctype="multipart/form-data">
+    {{ formPut.hidden_tag() }}
+    {{wtf.form_field(formPut.putID)}}
+    {{wtf.form_field(formPut.inputSpeedGate)}}
+    {{wtf.form_field(formPut.inputCountGate)}}
+    {{wtf.form_field(formPut.submitPut)}}
+    {{wtf.form_field(formPut.putInfoText)}}
+</form>
+<hr/>
+
+<h3>4. Show Sensors on Map </h3>
+<form method="post" enctype="multipart/form-data">
+    {{ formShow.hidden_tag() }}
+    {{wtf.form_field(formShow.showAllSensors)}}
+    {{wtf.form_field(formShow.showAlertedSensors)}}
+    {{wtf.form_field(formShow.showTogether)}}
+</form>
+<hr/>
+<br>
+{% endblock %}
