@@ -1,5 +1,4 @@
-#FROM buildpack-deps:jessie
-FROM python:2.7-alpine
+FROM python:2.7-jessie
 
 RUN mkdir /app
 # Set the current directory

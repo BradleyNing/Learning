@@ -56,6 +56,7 @@ def getIDToken():
 
 @app.route('/', methods=['GET','POST'])
 def admin():
+    global qttClient
     formGet = Form_admin_get()
     formPut = Form_admin_put()
     formShow = Form_admin_show()
