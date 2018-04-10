@@ -14,6 +14,7 @@ app.config['SECRET_KEY'] = 'hard to guess string'
 Bootstrap(app)
 
 LED_GATE = 10
+qttClient = ''
 
 def customCallback(client, userdata, msg):
     global qttClient, LED_GATE
@@ -184,9 +185,9 @@ if __name__ == '__main__':
         qttClient = AWSIoTMQTTClient("HP-Ireland-app1")
         endpoint = "a2mxpvymzj1qjd.iot.eu-west-1.amazonaws.com"
         qttClient.configureEndpoint(endpoint, 8883)
-        root_ca = '../keys/root-CA.crt'
-        prvt_key = '../keys/HP-Ireland.private.key'
-        cert_pem = '../keys/HP-Ireland.cert.pem'
+        root_ca = './keys/root-CA.crt'
+        prvt_key = './keys/HP-Ireland.private.key'
+        cert_pem = './keys/HP-Ireland.cert.pem'
         qttClient.configureCredentials(root_ca, 
                                        prvt_key, 
                                        cert_pem)
