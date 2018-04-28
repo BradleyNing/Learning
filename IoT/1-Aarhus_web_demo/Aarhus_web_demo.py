@@ -179,7 +179,7 @@ def admin():
                             formLed=formLed)
 
 import traceback
-PORT=8891
+PORT=8890
 if __name__ == '__main__':  
     try:
         qttClient = AWSIoTMQTTClient("HP-Ireland-app1")
@@ -196,6 +196,7 @@ if __name__ == '__main__':
         #qttClient = boto3.client('iot-data')
         qttClient.subscribe("AWS/Aarhus/traffic/alert", 0, customCallback)
         #app.run(debug=True, port=int(PORT))
-        app.run(debug=True, host='0.0.0.0', port=int(PORT))
+        #app.run(debug=True, host='0.0.0.0', port=int(PORT))
+        app.run(host='0.0.0.0', port=int(PORT))
     except:
         traceback.print_exc()
