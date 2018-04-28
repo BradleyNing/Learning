@@ -179,7 +179,7 @@ def admin():
                             formLed=formLed)
 
 import traceback
-PORT=8890
+PORT=16699
 if __name__ == '__main__':  
     try:
         qttClient = AWSIoTMQTTClient("HP-Ireland-app1")
