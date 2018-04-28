@@ -63,6 +63,7 @@ if __name__ == '__main__':
         qttClient.connect()
         #qttClient.subscribe("AWS/Aarhus/traffic/alert", 0, customCallback)
         #app.run(debug=True, port=int(PORT))
-        app.run(debug=True, host='0.0.0.0', port=int(PORT))
+        #app.run(debug=True, host='0.0.0.0', port=int(PORT))
+        app.run(host='0.0.0.0', port=int(PORT))
     except:
         traceback.print_exc()
