@@ -8,7 +8,7 @@ print("The server is ready to receive")
 
 while True:
 	msg, clientAddr = serverSocket.recvfrom(2048)
-	print("received message: " + msg)
+	print("received message from {}: {}".format(str(clientAddr), msg))
 	modifiedMsg = msg.decode().upper()
 	serverSocket.sendto(modifiedMsg.encode(), clientAddr)
 
