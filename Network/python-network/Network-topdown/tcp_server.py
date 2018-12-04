@@ -9,8 +9,11 @@ serverSocket.listen(conNums)
 print('The server is ready to receive')
 
 while True:
-	conSocket, addr = serverSocket.accept()
+	conSocket, clientAddr = serverSocket.accept()
+	print("received connection from {} and setup socket of {}" \
+		   .format(str(clientAddr), str(conSocket)))
 	msg = conSocket.recv(1024).decode()
+	print("received message from {}: {}".format(str(clientAddr), msg))
 	capMsg = msg.upper()
 	conSocket.send(capMsg.encode())
 	conSocket.close()
