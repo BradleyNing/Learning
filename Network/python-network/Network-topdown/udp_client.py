@@ -1,6 +1,8 @@
 from socket import *
 
-serverName = '192.168.1.152'
+hp = '192.168.1.193'
+mac = '192.168.1.152'
+serverName = mac
 serverPort = 9999
 clientSocket = socket(AF_INET, SOCK_DGRAM)
 
