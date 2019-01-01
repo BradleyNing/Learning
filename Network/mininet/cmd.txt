@@ -1,0 +1,42 @@
+sudo ovs-vsctl show
+sudo ovs-ofctl dump-ports s1
+sudo ovs-ofctl dump-flows s1
+
+sudo mn --controller=remote,ip=192.168.1.193 --mac --topo=tree,depth=1,fanout=3
+
+sudo mn --mac --topo=tree,depth=2,fanout=3
+
+ovs-ofctl -O OpenFlow13 dump-flows br0
+
+config t
+no shut
+int f0/0
+no shut
+ip add
+ip address 10.1.1.1 255.255.255.0
+
+ovs-vsctl set bridge br0 stp_enable=true
+
+apt-get install default-jre-headless
+export JAVA_HOME=/usr/lib/jvm/default-java
+
+wget https://nexus.opendaylight.org/content/repositories/public/org/opendaylight/integration/distribution-karaf/0.5.2-Boron-SR2/distribution-karaf-0.5.2-Boron-SR2.zip
+
+./bin/karaf
+
+feature:install odl-restconf odl-l2switch-switch odl-mdsal-apidocs odl-dlux-all
+feature:install odl-restconf-all odl-openflowplugin-all odl-l2switch-all
+feature:install odl-restconf-all odl-openflowplugin-all odl-l2switch-all odl-mdsal-all odl-yangtools-common
+
+
+ovs-vsctl set-controller br0 tcp:192.168.122.143:6653
+
+feature:list -i | grep dlux
+feature:list | grep dlux
+
+"C:\Program Files\Java\jdk1.8.0_191\bin\keytool" -keystore .keystore -alias jetty -genkey -keyalg RSA
+
+
+
+
+
