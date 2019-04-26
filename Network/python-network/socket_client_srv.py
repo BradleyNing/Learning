@@ -5,7 +5,7 @@ MAX_BYTES = 65535
 
 def server(port):
 	sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-	sock.bind(('127.0.0.1', port))
+	sock.bind(('0.0.0.0', port))
 	print('Listening at {}'.format(sock.getsockname()))
 
 	while True:
@@ -20,7 +20,7 @@ def client(port):
 	sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 	text = 'The time is {}'.format(datetime.now())
 	data = text.encode('ascii')
-	sock.sendto(data, ('127.0.0.1', port))
+	sock.sendto(data, ('192.168.1.152', port))
 	print('The OS assigned me the address {}'.format(sock.getsockname()))
 	data, address = sock.recvfrom(MAX_BYTES) # Danger!
 	text = data.decode('ascii')

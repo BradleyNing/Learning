@@ -1,1 +1,0 @@
-All devices start with a blank configuration.
